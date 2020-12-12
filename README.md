@@ -1,5 +1,5 @@
 # InterviewQuestions
-Java Implementation of commonly asked interview questions.
+Java Implementation of commonly asked coding questions.
 
 # Author
 Pratik Shende
