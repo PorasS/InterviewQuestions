@@ -2,7 +2,7 @@ import java.util.Stack;
 
 
 /**
- * Flatten Binary Tree to Linked List
+ * Flatten Binary Tree to Linked List LeetCode
  */
 
 /**
