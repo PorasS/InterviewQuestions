@@ -19,9 +19,7 @@ class Solution {
         int num = map.get(Character.toString(s.charAt(i)));
             
         if(num>prevNo){
-            int num2 = num - prevNo;
-            ans = ans - prevNo;
-            ans = ans + num2;
+            ans = (ans - prevNo) + (num - prevNo);
         }else{
             ans = ans + num;
             prevNo = num;
