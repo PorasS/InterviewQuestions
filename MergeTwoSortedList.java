@@ -13,6 +13,7 @@ class Solution {
         List<Integer> arrayList = new ArrayList<>();
         ListNode head = null;
         ListNode p = l1;
+        ListNode temp=null;
         while(p!=null){
             arrayList.add(p.val);
             p=p.next;
@@ -32,12 +33,12 @@ class Solution {
                 ListNode node = new ListNode(num);
                 head = node;
             }else{
-                ListNode temp = head;
-                while(temp.next!=null){
-                    temp=temp.next;
+                if(temp==null){
+                    temp = head;
                 }
                 ListNode node = new ListNode(num);
                 temp.next = node;
+                temp = node;
             }
         }
         return head;
