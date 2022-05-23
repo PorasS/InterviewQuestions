@@ -1,37 +1,26 @@
 class Solution {
     public boolean isValid(String s) {
         
-        Stack<Character> stack = new Stack<>(); 
-        
-        if(s.charAt(0) == '}' || s.charAt(0) == ']' || s.charAt(0) == ')'){
+        if(s.length()==1){
             return false;
         }
-        
-        for(int i=0; i<s.length();i++){
-            
-            if(s.charAt(i)=='(' || s.charAt(i)=='{' || s.charAt(i)=='['){
-                stack.push(s.charAt(i));
+
+        Stack<Character> chStack = new Stack<>();
+        for(int i = 0; i<s.length(); i++){
+            char ch = s.charAt(i);
+            if(ch=='{'||ch=='('|| ch=='['){
+                chStack.push(ch);
             }else{
-                if(!stack.empty()){
-                    char topChar = stack.peek();
-                    if((s.charAt(i)==')' && topChar == '(')||(s.charAt(i)=='}' && topChar == '{')||(s.charAt(i)==']' && topChar == '[')){
-                        stack.pop();
-                    }else{
-                        return false;
-                    }
-                }else{
-                   if(s.charAt(i) == '}' || s.charAt(i) == ']' || s.charAt(i) == ')'){
-                         return false;
-                     }
-                }    
+                if(chStack.size()==0){
+                    return false;
+                }
+                if((ch==']' && chStack.pop()!='[')
+                || (ch=='}' && chStack.pop()!='{') ||
+                (ch==')' && chStack.pop()!='(')){
+                    return false;
+                }
             }
         }
-        
-        if(stack.empty()){
-            return true;
-        }else{
-            return false;
-        }
-        
+        return chStack.size()>0?false:true;
     }
 }
